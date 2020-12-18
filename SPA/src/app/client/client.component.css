@@ -1,0 +1,11 @@
+:host >>> .popover{
+  max-width: 100%;
+}
+
+.btn{
+  padding-top: 0;
+  border-top: 0;
+  padding-left: 0;
+}
+
+

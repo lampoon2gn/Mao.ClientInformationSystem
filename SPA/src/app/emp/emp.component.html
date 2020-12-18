@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Designation</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let emp of emps; index as i" (click)="listIntByEmp(emp.id)">
+    <td>{{ emp.id }}</td>
+    <td>
+      <ng-template #popContent><app-interactions [ints] = 'ints'></app-interactions></ng-template>
+      <ng-template #popTitle>Interactions</ng-template>
+      <button type="button" class="btn " [ngbPopover]="popContent" [popoverTitle]="popTitle">
+        {{ emp.name }}
+      </button>
+    </td>
+    <td>{{ emp.designation}}</td>
+  </tr>
+  </tbody>
+</table>
+<br>
+
+
+<!-- *ngIf="ints==undefined" -->

@@ -1,0 +1,22 @@
+<table class="table table-striped" *ngIf="ints">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Client Id</th>
+    <th scope="col">Employee Id</th>
+    <th scope="col">Interaction Type</th>
+    <th scope="col">Interaction Date</th>
+    <th scope="col">Remarks</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let int of ints; index as i" >
+    <td>{{ int.id }}</td>
+    <td>{{ int.clientId }}</td>
+    <td>{{ int.empId}}</td>
+    <td>{{ int.intType}}</td>
+    <td>{{ int.intDate}}</td>
+    <td>{{ int.remarks}}</td>
+  </tr>
+  </tbody>
+</table>

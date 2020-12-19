@@ -18,7 +18,7 @@ import { EmpComponent } from './emp/emp.component';
     HeaderComponent,
     InteractionsComponent,
     ClientComponent,
-    EmpComponent
+    EmpComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,6 @@ import { EmpComponent } from './emp/emp.component';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }

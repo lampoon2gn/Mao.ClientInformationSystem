@@ -10,5 +10,8 @@ namespace Mao.ClientInformationSystem.Core.Models.Response
         public int? ClientId { get; set; }
         public int? EmpId { get; set; }
         public DateTime? IntDate { get; set; }
+        public string Remarks { get; set; }
+        public char? IntType { get; set; }
+
     }
 }

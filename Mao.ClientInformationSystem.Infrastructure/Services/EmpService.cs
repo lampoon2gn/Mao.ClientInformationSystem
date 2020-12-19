@@ -38,6 +38,19 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
             return e.Name;
         }
 
+        public async Task<AddEmpResponseModel> GetEmpById(int id)
+        {
+            var e = await _empRepo.GetByIdAsync(id);
+            var r = new AddEmpResponseModel
+            {
+                Id=e.Id,
+                Name=e.Name,
+                Password=e.Password,
+                Designation=e.Designation
+            };
+            return r;
+        }
+
         public async Task<IEnumerable<ListEmpResponseModel>> ListEmp()
         {
             var res = await _empRepo.ListAllAsync();

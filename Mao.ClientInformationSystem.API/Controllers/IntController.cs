@@ -66,5 +66,13 @@ namespace Mao.ClientInformationSystem.API.Controllers
             var res = await _intService.ListIntByClient(clientId);
             return Ok(res);
         }
+
+        [HttpGet]
+        [Route("{intId:int}")]
+        public async Task<IActionResult> GetIntById(int intId)
+        {
+            var res = await _intService.GetIntById(intId);
+            return Ok(res);
+        }
     }
 }

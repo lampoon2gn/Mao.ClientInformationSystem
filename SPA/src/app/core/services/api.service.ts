@@ -29,9 +29,26 @@ export class ApiService {
     }
   }
 
+  getOne(path: string, id?:number) : Observable<any>{
+
+    let getUrl:string;
+    getUrl = `${environment.apiUrl}${path}` +`/` +id;
+    return this.http.get(getUrl).pipe(map((resp) => resp as any));
+  }
+
   create(path: string,resource: any, options?:any):Observable<any>{
     return this.http
     .post(`${environment.apiUrl}${path}`,resource,{headers:this.headers})
     .pipe(map(response=>response));
+  }
+
+  update(path: string,resource: any, options?:any):Observable<any>{
+    return this.http
+    .put(`${environment.apiUrl}${path}`,resource,{headers:this.headers})
+    .pipe(map(response=>response));
+  }
+
+  delete(path: string, id:number): Observable<any[]>{
+    return this.http.delete(`${environment.apiUrl}${path}` +`/` +id).pipe(map(resp=>resp as any[]));
   }
 }

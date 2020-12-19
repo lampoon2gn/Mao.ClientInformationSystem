@@ -73,5 +73,20 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
             }
             return modelList;
         }
+
+        public async Task<AddClientResponseModel> GetClientById(int id)
+        {
+            var c = await _clientRepo.GetByIdAsync(id);
+            var r = new AddClientResponseModel
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Email = c.Email,
+                Phones = c.Phones,
+                Address = c.Address,
+                AddedOn = c.AddedOn
+            };
+            return r;
+        }
     }
 }

@@ -7,6 +7,65 @@
     <th scope="col">Interaction Type</th>
     <th scope="col">Interaction Date</th>
     <th scope="col">Remarks</th>
+    <th scope="col">
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Upsert Interaction</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="id">Id</label>
+              <div class="input-group">
+                <input [formControl]="id" class="form-control">
+              </div>
+            <!-- </div>
+            <div class="form-group"> -->
+              <label for="clientId">Client Id</label>
+              <div class="input-group">
+                <input [formControl]="clientId" class="form-control">
+              </div>
+            <!-- </div>
+            <div class="form-group"> -->
+              <label for="empId">Employee Id</label>
+              <div class="input-group">
+                <input [formControl]="empId" class="form-control">
+              </div>
+            <!-- </div>
+            <div class="form-group"> -->
+              <label for="intType">Interaction Type</label>
+              <div class="input-group">
+                <input [formControl]="intType" class="form-control">
+              </div>
+            <!-- </div>
+            <div class="form-group"> -->
+              <label for="intDate">Interaction Date</label>
+              <div class="input-group">
+                <input [formControl]="intDate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                </div>
+              </div>
+            <!-- </div>
+            <div class="form-group"> -->
+              <label for="remarks">Remarks</label>
+              <div class="input-group">
+                <textarea [formControl]="remarks" class="form-control"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Upsert</button>
+        </div>
+      </ng-template>
+      
+      <button class="btn btn-outline-primary" (click)="open(content)">Upsert Interaction</button>
+    </th>
+    
   </tr>
   </thead>
   <tbody>
@@ -17,6 +76,16 @@
     <td>{{ int.intType}}</td>
     <td>{{ int.intDate}}</td>
     <td>{{ int.remarks}}</td>
+    <td>
+      <div class="col">
+        <div class="d-inline-block">
+          <button class="btn btn-outline-primary"  (click)="deleteInt(int.id)">Delete</button>
+        </div>
+      </div>
+      
+    </td>
+    
+    
   </tr>
   </tbody>
 </table>

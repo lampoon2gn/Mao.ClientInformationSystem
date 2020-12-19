@@ -26,7 +26,7 @@ namespace Mao.ClientInformationSystem.API.Controllers
             if (ModelState.IsValid)
             {
                 var res = await _empService.AddEmp(model);
-                return Ok(res);
+                return Ok();
             }
             return BadRequest("Please check the info you entered");
         }
@@ -36,7 +36,7 @@ namespace Mao.ClientInformationSystem.API.Controllers
         public async Task<IActionResult> DelEmp(int empId)
         {
             var res = await _empService.DeleteEmp(empId);
-            return Ok(res);
+            return Ok();
         }
 
         [HttpPut]
@@ -46,7 +46,7 @@ namespace Mao.ClientInformationSystem.API.Controllers
             if (ModelState.IsValid)
             {
                 var res = await _empService.UpdateEmp(model);
-                return Ok(res);
+                return Ok();
             }
             return BadRequest("Please check the info you entered");
         }
@@ -56,6 +56,13 @@ namespace Mao.ClientInformationSystem.API.Controllers
         public async Task<IActionResult> ListEmp()
         {
             var res = await _empService.ListEmp();
+            return Ok(res);
+        }
+        [HttpGet]
+        [Route("{empId:int}")]
+        public async Task<IActionResult> GetEmpById(int empId)
+        {
+            var res = await _empService.GetEmpById(empId);
             return Ok(res);
         }
 

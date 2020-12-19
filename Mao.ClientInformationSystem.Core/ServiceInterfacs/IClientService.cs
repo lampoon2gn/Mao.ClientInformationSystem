@@ -14,5 +14,7 @@ namespace Mao.ClientInformationSystem.Core.ServiceInterfacs
         Task<string> UpdateClient(AddClientRequestModel model);
         Task<IEnumerable<ListClientResponseModel>> ListClient();
 
+        Task<AddClientResponseModel> GetClientById(int id);
+
     }
 }

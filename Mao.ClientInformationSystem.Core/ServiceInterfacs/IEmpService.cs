@@ -13,5 +13,6 @@ namespace Mao.ClientInformationSystem.Core.ServiceInterfacs
         Task<string> DeleteEmp(int id);
         Task<string> UpdateEmp(AddEmpRequestModel model);
         Task<IEnumerable<ListEmpResponseModel>> ListEmp();
+        Task<AddEmpResponseModel> GetEmpById(int id);
     }
 }

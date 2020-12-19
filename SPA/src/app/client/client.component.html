@@ -7,6 +7,53 @@
     <th scope="col">Phones</th>
     <th scope="col">Address</th>
     <th scope="col">Added On</th>
+    <th scope="col">
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Upsert Client</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <label for="id">Id - Leave Id as 0 for insertion</label>
+              <div class="input-group">
+                <input [formControl]="id" class="form-control">
+              </div>
+            <div class="form-group">
+              <label for="clientName">Name</label>
+              <div class="input-group">
+                <input [formControl]="clientName" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="clientEmail">Email</label>
+              <div class="input-group">
+                <input [formControl]="clientEmail" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="clientPhones">Phones</label>
+              <div class="input-group">
+                <input [formControl]="clientPhones" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="clientAddress">Address</label>
+              <div class="input-group">
+                <input [formControl]="clientAddress" class="form-control">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Upsert</button>
+        </div>
+      </ng-template>
+      
+      <button class="btn btn-outline-primary" (click)="open(content)">Upsert Client</button>
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -15,7 +62,7 @@
     <td>
       <ng-template #popContent><app-interactions [ints] = 'ints'></app-interactions></ng-template>
       <ng-template #popTitle>Interactions</ng-template>
-      <button type="button" class="btn " [ngbPopover]="popContent" [popoverTitle]="popTitle">
+      <button type="button" class="btn name" [ngbPopover]="popContent" [popoverTitle]="popTitle">
         {{ c.name }}
       </button>
     </td>
@@ -23,6 +70,17 @@
     <td>{{ c.phones }}</td>
     <td>{{ c.address }}</td>
     <td>{{ c.addedOn }}</td>
+    <td>
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Operations</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <!-- <button ngbDropdownItem (click)="updateEmp(emp.id)">Update</button> -->
+            <button ngbDropdownItem (click)="deleteClient(c.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </td>
   </tr>
   </tbody>
 </table>

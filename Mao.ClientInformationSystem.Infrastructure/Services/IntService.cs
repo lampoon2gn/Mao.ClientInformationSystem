@@ -35,7 +35,9 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
                 Id = res.Id,
                 EmpId = res.EmpId,
                 ClientId = res.ClientId,
-                IntDate = res.IntDate
+                IntDate = res.IntDate,
+                Remarks = res.Remarks,
+                IntType = res.IntType
             };
             return resModel;
         }
@@ -49,7 +51,9 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
                 Id = c.Id,
                 EmpId = c.EmpId,
                 ClientId = c.ClientId,
-                IntDate = c.IntDate
+                IntDate = c.IntDate,
+                Remarks = c.Remarks,
+                IntType =c.IntType
             };
             return resModel;
         }
@@ -67,7 +71,8 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
                     ClientId = i.ClientId,
                     EmpId = i.EmpId,
                     IntType = i.IntType,
-                    IntDate = i.IntDate
+                    IntDate = i.IntDate,
+                    Remarks = i.Remarks
                 };
                 modelList.Add(m);
             }
@@ -88,7 +93,9 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
                     ClientId = i.ClientId,
                     EmpId = i.EmpId,
                     IntType = i.IntType,
-                    IntDate = i.IntDate
+                    IntDate = i.IntDate,
+                    Remarks = i.Remarks
+                    
                 };
                 modelList.Add(m);
             }
@@ -112,9 +119,26 @@ namespace Mao.ClientInformationSystem.Infrastructure.Services
                 Id = res.Id,
                 EmpId = res.EmpId,
                 ClientId = res.ClientId,
-                IntDate = res.IntDate
+                IntDate = res.IntDate,
+                Remarks=res.Remarks,
+                IntType=res.IntType
             };
             return resModel;
         }
+        public async Task<AddIntResponseModel> GetIntById(int id)
+        {
+            var res = await _intRepo.GetByIdAsync(id);
+            var resModel = new AddIntResponseModel
+            {
+                Id = res.Id,
+                EmpId = res.EmpId,
+                ClientId = res.ClientId,
+                IntDate = res.IntDate,
+                Remarks = res.Remarks,
+                IntType = res.IntType
+            };
+            return resModel;
+        }
+
     }
 }

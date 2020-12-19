@@ -14,5 +14,6 @@ namespace Mao.ClientInformationSystem.Core.ServiceInterfacs
         Task<AddIntResponseModel> UpdateInt(AddIntRequestModel model);
         Task<IEnumerable<ListIntResponseModel>> ListIntByEmp(int id);
         Task<IEnumerable<ListIntResponseModel>> ListIntByClient(int id);
+        Task<AddIntResponseModel> GetIntById(int id);
     }
 }
